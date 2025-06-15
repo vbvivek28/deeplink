@@ -34,7 +34,14 @@
 <body>
     <div class="container">
         <h1>Testing Deeplink</h1>
+        <p>Screen: <strong id="screenName"></strong></p>
+        <p>ID: <strong id="screenId"></strong></p>
+        <script>
+            document.getElementById('screenName').textContent = screen || 'N/A';
+            document.getElementById('screenId').textContent = id || 'N/A';
+        </script>
         <div class="loading">Redirecting to app...</div>
+        
     </div>
 
     <script>
@@ -51,7 +58,8 @@
         // Fallback to web URL after 1.5 seconds
         setTimeout(() => {
             window.location.href = `https://chitchat.co`;
-        }, 1500);
+        }, 10500);
+
     </script>
 </body>
 </html>

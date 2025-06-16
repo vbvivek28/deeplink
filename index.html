@@ -45,20 +45,11 @@
 
     <script>
         // Extract URL parameters
-      const params = new URLSearchParams(location.search);
-const screen = params.get("screen");
-const id = params.get("id");
-
-// Construct scheme URL with optional params
-let schemeUrl = "myapp://";
-
-if (screen) {
-  schemeUrl += screen;
-}
-
-if (id) {
-  schemeUrl += `?id=${id}`;
-}
+        const screen = new URLSearchParams(location.search).get("screen");
+        const id = new URLSearchParams(location.search).get("id");
+        
+        // Construct the custom scheme URL
+        const schemeUrl = `myapp://${screen}/${id}`;
         
         // Attempt to open the native app
         window.location.href = schemeUrl;
